@@ -1,4 +1,5 @@
 require("amir.remap")
+require("amir.set")
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -33,7 +34,7 @@ require("lazy").setup({
 			local configs = require("nvim-treesitter.configs")
 
 			configs.setup({
-				ensured_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
+				ensured_installed = { "lua", "vim", "vimdoc", "query", "javascript", "html" },
 				sync_install = false,
 				highlight = { enabled = true },
 				indent = { enabled = true },
@@ -52,5 +53,17 @@ require("lazy").setup({
 	},
 	{
 		"tpope/vim-fugitive"
-	}
-})	
+	},
+	{
+		'williamboman/mason.nvim'
+	},
+	{'williamboman/mason-lspconfig.nvim'},
+	{'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+	{'neovim/nvim-lspconfig'},
+	{'hrsh7th/cmp-nvim-lsp'},
+	{'hrsh7th/nvim-cmp'},
+	{'L3MON4D3/LuaSnip'},
+	{"zbirenbaum/copilot.lua"},
+	{ "nvim-zh/better-escape.vim", event = { "InsertEnter" } },
+    {"numToStr/Comment.nvim"}
+})
